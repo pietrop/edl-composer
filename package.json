@@ -1,5 +1,5 @@
 {
-  "name": "edl-composer",
+  "name": "edl_composer",
   "version": "1.0.0",
   "description": "ELD composer can be used to create Edit Decision List. EDL, Edit Decision List, is a plain text format that describes a video sequence. It can be opened in a video editing software to reconnect media to assemble a video sequence",
   "main": "index.js",
