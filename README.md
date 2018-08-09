@@ -1,5 +1,9 @@
 # Edl Composer
 
+## Install
+can be found on [npm as `edl-composer`](https://www.npmjs.com/package/edl-composer)
+so just run `npm install edl-composer` to add to your project. 
+
 ## Usage
 
 The EDL sequence should have the following attributes
