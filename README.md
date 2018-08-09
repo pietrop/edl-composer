@@ -11,14 +11,13 @@ The EDL sequence should have the following attributes
 ```javascript
 var edlSqDemo = {
     "title": "Demo Title of project",
-    //offset is optional default is "00:00:00:00"
     "events":  [
       { "id":1,
-        "startTime": 10,
+        "startTime": 10, // in seconds 
         "endTime": 20,
         "reelName":"SomeReelName",
         "clipName":"Something.mov"
-        "offset": "00:00:28:08",
+        "offset": "00:00:28:08", //offset is optional default is "00:00:00:00"
         "fps": 25
       },
       { "id":2,
