@@ -1,8 +1,8 @@
 # Edl Composer
 
 ## Install
-can be found on [npm as `edl-composer`](https://www.npmjs.com/package/edl-composer)
-so just run `npm install edl-composer` to add to your project. 
+can be found on [npm as `edl_composer`](https://www.npmjs.com/package/edl-composer)
+so just run `npm install edl_composer` to add to your project. 
 
 ## Usage
 

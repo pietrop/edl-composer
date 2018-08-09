@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url":"https://github.com/pietrop/edl-composer"
+    "url":"https://github.com/pietrop/edl_composer"
   },
   "author": "Pietro Passarelli <pietro.passarelli@gmail.com> (http://pietropassarelli.com)",
   "license": "ISC"
