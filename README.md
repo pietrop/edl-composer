@@ -1,15 +1,10 @@
 ## Edl Composer
 
-_One liner + link to confluence page_
-_Screenshot of UI - optional_
-
 The EDL composer node module can be used to create Edit Decision List. 
 EDL, Edit Decision List, is a plain text format that describes a video sequence. It can be opened in a video editing software to reconnect media to assemble a video sequence. Originally extracted from autoEdit.io
 
 
 ## Setup
-_stack - optional_
-_How to build and run the code/app_
 
 ### Setup for Contributing 
 
