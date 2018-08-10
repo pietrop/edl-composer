@@ -1,22 +1,58 @@
-# Edl Composer
+## Edl Composer
 
-## Install
-can be found on [npm as `edl_composer`](https://www.npmjs.com/package/edl_composer)
-so just run `npm install edl_composer` to add to your project. 
+_One liner + link to confluence page_
+_Screenshot of UI - optional_
+
+The EDL composer node module can be used to create Edit Decision List. 
+EDL, Edit Decision List, is a plain text format that describes a video sequence. It can be opened in a video editing software to reconnect media to assemble a video sequence. Originally extracted from autoEdit.io
+
+
+## Setup
+_stack - optional_
+_How to build and run the code/app_
+
+### Setup for Contributing 
+
+Clone the repo
+ 
+```
+git clone git@github.com:pietrop/edl_composer.git
+```
+
+Install dependencies 
+```
+npm install
+```
+
+And if you want to try it out 
+
+```
+node example-usage.js
+```
+
+### Setup for usage
+
+To use in your project, the module can be found on [npm as `edl_composer`](https://www.npmjs.com/package/edl_composer)
+so just run the following to add to your project. 
+
+```
+npm install edl_composer
+```
 
 ## Usage
+
 
 The EDL sequence should have the following attributes
 
 ```javascript
-var edlSqDemo = {
+var edlSq = {
     "title": "Demo Title of project",
     "events":  [
       { "id":1,
         "startTime": 10, // in seconds 
         "endTime": 20,
         "reelName":"SomeReelName",
-        "clipName":"Something.mov"
+        "clipName":"Something.mov",
         "offset": "00:00:28:08", //offset is optional default is "00:00:00:00"
         "fps": 25
       },
@@ -32,7 +68,7 @@ var edlSqDemo = {
         "startTime": 45,
         "endTime": 55,
         "reelName":"NA",
-        "clipName":"SomethingElse.mov"
+        "clipName":"SomethingElse.mov",
         "offset": "00:00:28:08",
         "fps": 24
       }
@@ -40,16 +76,37 @@ var edlSqDemo = {
 }
 ```
 
-And it can be parsed and composed into an EDL as following. This returns a string that you can write to file or else.
+And it can be parsed and composed into an EDL as following. 
 
 ```javascript
 
-var edl = new EDL(edlSq)
-console.log(edl.compose())
+var edl = new EDL(edlSq);
+console.log(edl.compose());
 ```
 
+This returns a string that you can write to file or else.
 
-## understandign the EDL specs
+```
+TITLE: Demo Title of project
+FCM: NON-DROP FRAME
+
+001   SOMEREE  AA/V  C  00:00:00:00 00:00:00:00 00:00:00:00 00:00:10:00
+* FROM CLIP NAME: Something.mov
+FINAL CUT PRO REEL: SomeReelName REPLACED BY: SOMEREE
+
+002   SOMEOTH  AA/V  C  00:00:00:00 00:00:00:00 00:00:10:00 00:00:20:00
+* FROM CLIP NAME: SomethingElse.mov
+FINAL CUT PRO REEL: SomeOtherReelName REPLACED BY: SOMEOTH
+
+002    AX  AA/V  C  00:00:00:00 00:00:00:00 00:00:20:00 00:00:30:00
+* FROM CLIP NAME: SomethingElse.mov
+
+```
+
+## System Architecture
+_High level overview of system architecture_
+
+### Understanding the EDL specs
 
 Example EDL. For more on how to read an edl and understand the specs [check this out](https://documentation.apple.com/en/finalcutpro/usermanual/index.html#chapter=96%26section=1%26tasks=true).
 
@@ -89,8 +146,6 @@ Most important par is that
 001  Card01Ky AA/V  C        00:02:26:21 00:02:30:12 00:00:00:00 00:00:03:16
 ```
 
-
-
 I refer to the first part as edl head, which contains the title of the project
 ```
 TITLE: {{projectTitle}}
@@ -120,13 +175,11 @@ However let's consider the first line of the EDL event line in more details, bec
 >In the days of linear tape editing, EDLs were used to save and restore the timecode information for each edit performed on a computer-controlled editing system. Because timecode editing systems were expensive, many editors would perform offline edits with window dubs (low-quality copies of original footage with timecode visually superimposed, or burned, directly onto the
 image) and then create an EDL by hand for delivery to a computer-controlled editing system for the online edit.
 
-
-
 - `001` line number  
-- `Card01Ky`
+- `Card01Ky`Reel name (comes from camcorder metadata, usually name of the camcorder card). For files that don't have have (eg downloaded from youtube), needs to be set as `AX`.
 - `AA/V` type of line event. audio and video in this case
 - `C` type of edit, cut in this case, but could also be dissolve, however that would require two tracks in the same line
--  clip in poin     `00:02:26:21`
+-  clip in poin `00:02:26:21`
 - clip out point `00:02:30:12`
 - tape/timeline in point, starts with zero `00:00:00:00`  on first line event, then is the timeline out point of the previous line event
 - tape/timeline out point is duration of the clip(clip out point - clip in point) + tape/timeline in point of this line event. `00:00:03:16`
@@ -134,3 +187,34 @@ image) and then create an EDL by hand for delivery to a computer-controlled edit
 What this means is that you have timecodes relative to the clip of the edl event line, in and out point, and then you have timecodes relative to the timeline of the sequence the edl is describing(that back in the day used to be referred to as tape).
 
 ![](https://documentation.apple.com/en/finalcutpro/usermanual/Art/S03/S0323_ImportEDL3.png)
+
+## Development env
+ _How to run the development environment_
+_Coding style convention ref optional, eg which linter to use_
+_Linting, github pre-push hook - optional_
+
+- node
+- npm 
+
+## Build
+_How to run build_
+
+No build step 
+ 
+
+## Tests
+_How to carry out tests_
+
+Minimal test using jest
+
+```
+npm test
+```
+ 
+
+## Deployment
+_How to deploy the code/app into test/staging/production_
+
+No deployment just a node module 
+
+
