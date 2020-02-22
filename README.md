@@ -31,7 +31,7 @@ To use in your project, the module can be found on [npm as `edl_composer`](https
 so just run the following to add to your project. 
 
 ```
-npm install edl_composer
+npm install @pietrop/edl-composer
 ```
 
 ## Usage

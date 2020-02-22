@@ -1,5 +1,6 @@
 
 // const EDL = require('edl_composer');
+const fs = require('fs');
 const EDL = require('./index.js');
 
 var edlSq = {
@@ -25,7 +26,7 @@ var edlSq = {
         "startTime": 45,
         "endTime": 55,
         "reelName":"NA",
-        "clipName":"SomethingElse.mov",
+        "clipName":"SomethingElse.mp4",
         "offset": "00:00:28:08",
         "fps": 24
       }
@@ -34,7 +35,9 @@ var edlSq = {
 
 
 var edl = new EDL(edlSq)
-console.log(edl.compose())
+const dat1 = edl.compose();
+fs.writeFileSync('./sample/regualr.edl',dat1);
+// console.log('---')
 /*
 * returns 
 
@@ -52,3 +55,48 @@ FINAL CUT PRO REEL: SomeOtherReelName REPLACED BY: SOMEOTH
 002    AX  AA/V  C  00:00:00:00 00:00:00:00 00:00:20:00 00:00:30:00
 * FROM CLIP NAME: SomethingElse.mov
 */
+
+var edlSqWithMxf = {
+  "title": "Demo MXF EDL project",
+  "events":  [
+    { "id":1,
+      "startTime": 1.62, // in seconds 
+      "endTime": 11.86,
+      "reelName":"NA",
+      "clipName":"516_0008.MXF",
+      "offset": "00:38:43:04", //offset is optional default is "00:00:00:00"
+      "fps": 25//23.98
+    },
+    { "id":2,
+      "startTime": 16.02,
+      "endTime": 22.98,
+      "reelName":"NA",
+      "clipName":"516_0008.MXF",
+      "offset": "00:38:43:04",
+      "fps":23.98
+    },
+    { "id":3,
+      "startTime": 23,
+      "endTime": 24,
+      "reelName":"NA",
+      "clipName":"516_0008.MXF",
+      "offset": "00:38:43:04",
+      "fps":23.98
+    },
+    { "id":4,
+    "startTime": 16.02,
+    "endTime": 22.98,
+    "reelName":"NA",
+    "clipName":"516_0008.MXF",
+    "offset": "00:38:43:04",
+    "fps": 23.98
+  },
+  ]
+}
+
+
+var edlWithMxf = new EDL(edlSqWithMxf)
+const data = edlWithMxf.compose();
+console.log(data)
+
+fs.writeFileSync('./sample/mxfedl.edl',data);
