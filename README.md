@@ -27,7 +27,7 @@ node example-usage.js
 
 ### Setup for usage
 
-To use in your project, the module can be found on [npm as `edl_composer`](https://www.npmjs.com/package/edl_composer)
+To use in your project, the module can be found on [npm as `@pietrop/edl-composer`](https://www.npmjs.com/package/@pietrop/edl-composer)
 so just run the following to add to your project. 
 
 ```

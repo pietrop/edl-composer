@@ -1,0 +1,6 @@
+ .vscode/
+ .github/
+ docs/
+ sample-output/
+ index.test.js   
+ example-usage.js

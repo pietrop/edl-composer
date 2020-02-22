@@ -36,7 +36,7 @@ var edlSq = {
 
 var edl = new EDL(edlSq)
 const dat1 = edl.compose();
-fs.writeFileSync('./sample/regualr.edl',dat1);
+fs.writeFileSync('./sample-output/regualr.edl',dat1);
 // console.log('---')
 /*
 * returns 
@@ -99,7 +99,7 @@ var edlWithMxf = new EDL(edlSqWithMxf)
 const data = edlWithMxf.compose();
 console.log(data)
 
-fs.writeFileSync('./sample/mxfedl.edl',data);
+fs.writeFileSync('./sample-output/mxfedl.edl',data);
 
 var edlSqMixedMxf = {
   "title": "Demo MXF EDL project",
@@ -144,4 +144,4 @@ var edlMixedMxf = new EDL(edlSqMixedMxf)
 const dataMixed = edlMixedMxf.compose();
 console.log(dataMixed)
 
-fs.writeFileSync('./sample/mixed-mxfedl.edl',dataMixed);
+fs.writeFileSync('./sample-output/mixed-mxfedl.edl',dataMixed);
