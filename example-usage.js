@@ -75,11 +75,56 @@ var edlSqWithMxf = {
       "offset": "00:38:43:04",
       "fps":23.98
     },
+  //   { "id":3,
+  //     "startTime": 23,
+  //     "endTime": 24,
+  //     "reelName":"NA",
+  //     "clipName":"516_0008.MXF",
+  //     "offset": "00:38:43:04",
+  //     "fps":23.98
+  //   },
+  //   { "id":4,
+  //   "startTime": 16.02,
+  //   "endTime": 22.98,
+  //   "reelName":"NA",
+  //   "clipName":"516_0008.MXF",
+  //   "offset": "00:38:43:04",
+  //   "fps": 23.98
+  // },
+  ]
+}
+
+
+var edlWithMxf = new EDL(edlSqWithMxf)
+const data = edlWithMxf.compose();
+console.log(data)
+
+fs.writeFileSync('./sample/mxfedl.edl',data);
+
+var edlSqMixedMxf = {
+  "title": "Demo MXF EDL project",
+  "events":  [
+    { "id":1,
+      "startTime": 1.62, // in seconds 
+      "endTime": 11.86,
+      "reelName":"NA",
+      "clipName":"516_0008.mp4",
+      "offset": "00:38:43:04", //offset is optional default is "00:00:00:00"
+      "fps": 25//23.98
+    },
+    { "id":2,
+      "startTime": 16.02,
+      "endTime": 22.98,
+      "reelName":"NA",
+      "clipName":"516_0008.MXF",
+      "offset": "00:38:43:04",
+      "fps":23.98
+    },
     { "id":3,
       "startTime": 23,
       "endTime": 24,
       "reelName":"NA",
-      "clipName":"516_0008.MXF",
+      "clipName":"516_0008.mov",
       "offset": "00:38:43:04",
       "fps":23.98
     },
@@ -95,8 +140,8 @@ var edlSqWithMxf = {
 }
 
 
-var edlWithMxf = new EDL(edlSqWithMxf)
-const data = edlWithMxf.compose();
-console.log(data)
+var edlMixedMxf = new EDL(edlSqMixedMxf)
+const dataMixed = edlMixedMxf.compose();
+console.log(dataMixed)
 
-fs.writeFileSync('./sample/mxfedl.edl',data);
+fs.writeFileSync('./sample/mixed-mxfedl.edl',dataMixed);

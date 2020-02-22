@@ -268,7 +268,7 @@ var EDL = function(config) {
       res += '* FROM CLIP NAME: ' + this.clipName + '\n';
       res+='\n';
       // AUDIO Track 1
-      res +=  '' + this.n() + '   ' + ' AX  V  C  ';
+      res +=  '' + this.n() + '   ' + ' AX  AA  C  ';
       res += secondsToTimecode(this.clipInPoint() + this.offset,this.fps) + ' ' + secondsToTimecode(this.clipOutPoint() + this.offset,this.fps)+" ";
       res += secondsToTimecode(this.tapeIn,this.fps) + ' ' + secondsToTimecode(this.tapeOut(),this.fps) + '\n';
       res += '* FROM CLIP NAME: ' + this.clipName + '\n';
@@ -278,13 +278,13 @@ var EDL = function(config) {
       res+='\n';
 
       // Audio track 2
-      res +=  '' + this.n() + '   ' + ' AX       NONE  C        ';
+      res +=  '' + this.n() + '  AX       NONE  C        ';
       res += secondsToTimecode(this.clipInPoint() + this.offset,this.fps) + ' ' + secondsToTimecode(this.clipOutPoint() + this.offset,this.fps)+" ";
       res += secondsToTimecode(this.tapeIn,this.fps) + ' ' + secondsToTimecode(this.tapeOut(),this.fps) + '\n';
       res += '* FROM CLIP NAME: ' + this.clipName + '\n';
       // res +=`* AUDIO LEVEL AT 00:38:43:04 IS -8.98 DB  (REEL AX A1)`;
       res +=`* AUDIO LEVEL AT ${secondsToTimecode(this.clipInPoint() + this.offset,this.fps)} IS -8.98 DB  (REEL AX A3)\n`;
-      res +=`* AUDIO LEVEL AT ${secondsToTimecode(this.clipInPoint() + this.offset,this.fps)} IS -8.98 DB  (REEL AX A3)\n`;
+      res +=`* AUDIO LEVEL AT ${secondsToTimecode(this.clipInPoint() + this.offset,this.fps)} IS -8.98 DB  (REEL AX A4)\n`;
       res +="AUD  3    4"
       res+='\n\n';
       return res;
