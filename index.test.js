@@ -1,6 +1,6 @@
 
 // const EDL = require('edl_composer');
-const EDL = require('./index.js');
+import EDL from './index.js';
 
 var edlSq = {
     "title": "Demo Title of project",

@@ -74,12 +74,12 @@ FINAL CUT PRO REEL: SomeOtherReelName REPLACED BY: SomeOthe
 * @todo Write documentation.
 * @todo add error handling and error callbacks
 */
-const path = require('path');
-const {
+import path from 'path';
+import {
   secondsToTimecode,
   timecodeToSeconds,
   shortTimecode
-} = require("@pietrop/react-transcript-editor/timecodeConverter");
+} from "@pietrop/timecode-converter";
 
 
 /**
@@ -293,5 +293,5 @@ var EDL = function(config) {
 
 };
 
-
-module.exports = EDL;
+export default EDL;
+// module.exports = EDL;
